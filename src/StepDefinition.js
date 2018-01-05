@@ -1,5 +1,8 @@
 'use strict'
 
+import uuid from 'uuid'
+const uuidV4 = uuid.v4
+
 /**
  * This class is for defining a step
  */
@@ -11,20 +14,17 @@ export default class StepDefinition {
     // a name for this step.
     this.name = opts.name ? opts.name : undefined
 
-    // an array of tags fro this step
-    this.tags = opts.tags ? opts.tags : []
-
     // a description for this step
     this.description = opts.description ? opts.description : undefined
 
     // Stores the data for each test case
-    this.data = []
+    this.id = uuidV4()
   }
 
   /**
-   * Checks that all the needed properties are set and loads the step implementation
+   * Checks that all the needed properties are set
    */
-  prepare() {
+  validate() {
     const errors = []
 
     if (this.class === undefined) {

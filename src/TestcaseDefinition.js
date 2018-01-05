@@ -13,12 +13,18 @@ export default class TestcaseDefinition {
 
     // a description for this test case
     this.description = opts.description ? opts.description : undefined
+
+    // The ids of the step definitions
+    this.steps = []
+
+    // all the data for this testcase. One entry for each step
+    this.data = []
   }
 
   /**
-   * Checks that all the needed properties are set and loads the step implementation
+   * Checks that all the needed properties are set
    */
-  prepare() {
+  validate() {
     const errors = []
 
     if (this.name === undefined) {
