@@ -9,7 +9,7 @@ export const EXECUTION_MODE_NORMAL = 'normal'
 export default class SuiteDefinition {
   constructor(opts = {}) {
     // a name for this suite
-    this.name = opts.name ? opts.name : undefined
+    this.name = opts.name
 
     // an array of tags for this suite
     this.tags = opts.tags ? opts.tags : []
@@ -24,7 +24,9 @@ export default class SuiteDefinition {
     this.steps = {}
 
     // In this mode all the testcases will be executed at the same time
-    this.executionMode = EXECUTION_MODE_BATCH
+    this.executionMode = opts.executionMode
+      ? opts.executionMode
+      : EXECUTION_MODE_BATCH
   }
 
   /**
@@ -32,6 +34,7 @@ export default class SuiteDefinition {
    * @return errors {array} The errors found
    */
   validate() {
+    const errors = []
     // validate the suite attributes
     if (this.name === undefined) {
       errors.push({
@@ -53,7 +56,6 @@ export default class SuiteDefinition {
     }
 
     // validate the steps
-    const errors = []
     Object.keys(this.steps).forEach(id => {
       const step = this.steps[id]
       step.validate().forEach(err => {
@@ -83,19 +85,20 @@ export default class SuiteDefinition {
    */
   validateBatch() {
     const errors = []
-    for (let i = 0; i < Object.keys(this.steps); i++) {
-      let stepId
-      for (let j = 0; j < this.testcases.length; j++) {
+
+    // Take the first test case as master and iterate the steps from the first test case
+    for (let i = 0; i < this.testcases[0].steps.length; i++) {
+      const stepId = this.testcases[0].steps[i]
+      for (let j = 1; j < this.testcases.length; j++) {
         const tc = this.testcases[j]
-        if (j === 0) {
-          // the first testcase defines the master step
-          stepId = tc.steps[i]
-        } else if (stepId !== tc.steps[i]) {
+        if (stepId !== tc.steps[i]) {
           // validate against the master
           errors.push({
             class: 'TestcaseDefinition',
-            error: `The step id msut be the same as for the other testcases (The first test case is the master)`,
-            testcase: tc.name ? tc.name : tc.class,
+            error: `The step id must be the same as for the other testcases (The first test case is the master)`,
+            steps: `${stepId} <--> ${tc.steps[i]}`,
+            stepPos: `Step number ${i + 1}`,
+            testcase: tc.name,
           })
         }
       }

@@ -18,6 +18,7 @@ export default class TestcaseDefinition {
     this.steps = []
 
     // all the data for this testcase. One entry for each step
+    // This could be an array or an object
     this.data = []
   }
 
@@ -31,7 +32,34 @@ export default class TestcaseDefinition {
       errors.push({
         class: 'TestcaseDefinition',
         error: `The 'name' property is not set.`,
-        testcase: this.name ? this.name : this.class,
+      })
+    }
+
+    if (this.steps === undefined || this.steps.length === 0) {
+      errors.push({
+        class: 'TestcaseDefinition',
+        error: `The 'steps' property does not contain any step ids`,
+        testcase: this.name,
+      })
+    }
+
+    if (this.data === undefined || this.data.length === 0) {
+      errors.push({
+        class: 'TestcaseDefinition',
+        error: `The 'data' property does not contain any step data`,
+        testcase: this.name,
+      })
+    }
+
+    if (
+      this.steps.length > 0 &&
+      this.data.length > 0 &&
+      this.steps.length !== this.data.length
+    ) {
+      errors.push({
+        class: 'TestcaseDefinition',
+        error: `The 'data' property must have the same amount of entries as the 'steps' property.`,
+        testcase: this.name,
       })
     }
 
