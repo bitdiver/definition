@@ -1,4 +1,4 @@
-== Suite
+=== Suite
 Defines the format of a suite as it is used by the runner.
 
 The suite is build of test cases and steps.

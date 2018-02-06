@@ -11,13 +11,13 @@ export default class StepDefinition {
     // The class is the name under which the implementation of this step is registered
     this.class = opts.class ? opts.class : undefined
 
-    // a name for this step.
+    // a name for this step. The same class my be used for many steps
     this.name = opts.name ? opts.name : undefined
 
     // a description for this step
     this.description = opts.description ? opts.description : undefined
 
-    // Stores the data for each test case
+    // The internal ID for this step. This is the step instance ID
     this.id = uuidV4()
   }
 

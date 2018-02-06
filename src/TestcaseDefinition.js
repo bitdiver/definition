@@ -8,9 +8,6 @@ export default class TestcaseDefinition {
     // a name for this test case.
     this.name = opts.name ? opts.name : undefined
 
-    // an array of tags fro this step
-    this.tags = opts.tags ? opts.tags : []
-
     // a description for this test case
     this.description = opts.description ? opts.description : undefined
 
