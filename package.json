@@ -17,7 +17,6 @@
     "src_format": "prettier --no-semi --single-quote --trailing-comma es5 --write \"{src,tests}/**/*.js\"",
     "test_only": "jest",
     "test": "npm run src_format && npm run src_lint && npm run build && jest -c jest.config.json",
-    "semantic-release": "semantic-release pre && npm publish --access public && semantic-release post",
     "debug": "npm run build && node --inspect-brk ./node_modules/.bin/jest -i --config=./jest.config.json",
     "prepublish": "npm run build"
   },
@@ -53,7 +52,7 @@
     "jest-environment-node-debug": "^2.0.0",
     "prettier": "^1.8.2",
     "regenerator-runtime": "^0.11.0",
-    "semantic-release": "^8.2.3"
+    "semantic-release": "^12.4.1"
   },
   "dependencies": {
     "uuid": "^3.1.0"
