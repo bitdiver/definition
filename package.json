@@ -18,7 +18,7 @@
     "test_only": "jest",
     "test": "npm run src_format && npm run src_lint && npm run build && jest -c jest.config.json",
     "debug": "npm run build && node --inspect-brk ./node_modules/.bin/jest -i --config=./jest.config.json",
-    "prepublish": "npm run build"
+    "prepare": "npm run build"
   },
   "contributors": [
     {
