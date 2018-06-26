@@ -55,6 +55,6 @@
     "semantic-release": "15.1.4"
   },
   "dependencies": {
-    "uuid": "3.2.1"
+    "uuid": "3.3.0"
   }
 }
