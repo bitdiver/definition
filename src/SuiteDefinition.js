@@ -1,5 +1,3 @@
-'use strict'
-
 export const EXECUTION_MODE_BATCH = 'batch'
 export const EXECUTION_MODE_NORMAL = 'normal'
 

@@ -1,4 +1,3 @@
-'use strict'
 
 /**
  * This class is for defining a step

@@ -1,5 +1,3 @@
-'use strict'
-
 import uuid from 'uuid'
 const uuidV4 = uuid.v4
 
