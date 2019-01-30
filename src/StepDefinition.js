@@ -2,7 +2,7 @@ import uuid from 'uuid'
 const uuidV4 = uuid.v4
 
 /**
- * This class is for defining a step
+ * This class is defining a step
  */
 export default class StepDefinition {
   constructor(opts = {}) {
