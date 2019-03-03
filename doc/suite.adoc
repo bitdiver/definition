@@ -34,3 +34,11 @@ used to filter for suites later on.
 <4> The test cases of this suite. This array contains the references to the test case definition
 <5> All the steps of this suite. The steps are stores by there id
 <6> Defines the execution mode for executing the suite. The normal mode is the batch mode.
+
+
+==== Batchmode
+In batch mode the steps and the test cases are building a matrix. This means that all the test cases
+must have the same amount of entries. Not all the steps must be assigned to each test case but
+on each position of a test case the same step must be assigned. For example in test case 1 on position
+3 there is a step with the id '4711' Then there must not be an other step assigned on position 3 in any other
+test case.

@@ -22,5 +22,5 @@ const testcase = {
 used to filter for test cases later on.
 
 <3> Any description for this suite.
-<4> The step instance ids used in this test case.
+<4> The step classes used in this test case.
 <5> The data for this test case. One entry for each step.

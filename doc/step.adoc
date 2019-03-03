@@ -16,11 +16,11 @@ const step = {
 	class: 'myClass'        <3>
 }
 ----
-<1> The name of this step.
+<1> The name of this step. You can have the same step (class) with many different names.
 <2> Any description for this step.
 <3> The name under which the step is registered in the step registry.
 
-Each element of the data array correspond to the test cases. This means the first
+Each element of the data array correspond to the test cases. This means that the first
 data entry of an step is the data of the first test case. So you could not have
 more data entries in a step than test cases. If this is a single step it is an
 array with the data for all the test cases.

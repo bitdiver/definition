@@ -16,10 +16,19 @@ export default class SuiteDefinition {
     this.description = opts.description ? opts.description : undefined
 
     // stores all the testcase definitions for this testcase
-    this.testcases = []
+    this.testcases = opts.testcases ? opts.testcases : []
 
     // Stores all the steps of this suite by there ID
     this.steps = {}
+
+    // if the steps are given as an array of steps
+    if (opts.steps !== undefined && Array.isArray(opts.steps)) {
+      for (const s of opts.steps) {
+        this.steps[s.id] = s
+      }
+    } else if (opts.steps !== undefined) {
+      this.steps = opts.steps
+    }
 
     // In this mode all the testcases will be executed at the same time
     this.executionMode = opts.executionMode

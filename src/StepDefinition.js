@@ -16,7 +16,7 @@ export default class StepDefinition {
     this.description = opts.description ? opts.description : undefined
 
     // The internal ID for this step. This is the step instance ID
-    this.id = uuidV4()
+    this.id = opts.id ? opts.id : uuidV4()
   }
 
   /**

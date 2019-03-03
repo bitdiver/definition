@@ -49,3 +49,21 @@ test('validate: Class missing', async done => {
 
   done()
 })
+
+test('create Step', async done => {
+  const stepDef = new StepDefinition({
+    name: 'my step name',
+    description: 'my description',
+    class: 'myClass',
+    id: 'myId',
+  })
+
+  expect(stepDef).toEqual({
+    class: 'myClass',
+    description: 'my description',
+    id: 'myId',
+    name: 'my step name',
+  })
+
+  done()
+})

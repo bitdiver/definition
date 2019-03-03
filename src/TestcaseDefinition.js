@@ -10,11 +10,11 @@ export default class TestcaseDefinition {
     this.description = opts.description ? opts.description : undefined
 
     // The ids of the step definitions
-    this.steps = []
+    this.steps = opts.steps ? opts.steps : []
 
     // all the data for this testcase. One entry for each step
     // This could be an array or an object
-    this.data = []
+    this.data = opts.data ? opts.data : []
   }
 
   /**
