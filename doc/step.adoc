@@ -1,11 +1,11 @@
-=== Step
-A step is a single action executed for the test. There are two flavours of steps.
+=== Step Definition
+A step definition is a single action executed for the test. There are two flavours of steps.
 The step with the type 'normal'. This step will be instantiated for each test case.
 The second flavour is 'single'. In this case there will only be one step instance
 for all the test cases.
 
-An example for a single step may be a step which cleans the data base for the new run.
-This must only be executed once for all the new tests.
+An example for a single step is a step which cleans the data base for the new run.
+This must only be executed once for all the tests.
 
 .Step
 [source, js]

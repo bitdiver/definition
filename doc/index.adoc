@@ -3,7 +3,7 @@
 This classes in this project describes suites, test cases and steps.
 This model is used by the runner to run the test.
 
-A suite defined the order in which steps should be executed and which test cases are to run.
+A suite defined the order in which steps are executed and test cases are run.
 
 include::step.adoc[]
 
