@@ -1,5 +1,4 @@
-import uuid from 'uuid'
-const uuidV4 = uuid.v4
+import { v4 as uuidv4 } from 'uuid'
 
 /**
  * This class is defining a step for execution. It is used in a suite.
@@ -16,7 +15,7 @@ export default class StepDefinition {
     this.description = opts.description ? opts.description : undefined
 
     // The internal ID for this step. This is the step instance ID
-    this.id = opts.id ? opts.id : uuidV4()
+    this.id = opts.id ? opts.id : uuidv4()
   }
 
   /**

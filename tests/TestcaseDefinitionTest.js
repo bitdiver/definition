@@ -1,6 +1,6 @@
-import TestcaseDefinition from '../lib/TestcaseDefinition'
+import TestcaseDefinition from '../src/TestcaseDefinition'
 
-test('validate: No errors', async done => {
+test('validate: No errors', async (done) => {
   const testcaseDef = new TestcaseDefinition({
     name: 'my step name',
     description: 'my description',
@@ -15,7 +15,7 @@ test('validate: No errors', async done => {
   done()
 })
 
-test('validate: Missing name', async done => {
+test('validate: Missing name', async (done) => {
   const testcaseDef = new TestcaseDefinition({
     description: 'my description',
   })
@@ -31,7 +31,7 @@ test('validate: Missing name', async done => {
   done()
 })
 
-test('validate: Missing data', async done => {
+test('validate: Missing data', async (done) => {
   const testcaseDef = new TestcaseDefinition({
     name: 'my step name',
     description: 'my description',
@@ -52,7 +52,7 @@ test('validate: Missing data', async done => {
   done()
 })
 
-test('validate: Missing steps', async done => {
+test('validate: Missing steps', async (done) => {
   const testcaseDef = new TestcaseDefinition({
     name: 'my step name',
     description: 'my description',
@@ -73,7 +73,7 @@ test('validate: Missing steps', async done => {
   done()
 })
 
-test('validate: steps count !== data count', async done => {
+test('validate: steps count !== data count', async (done) => {
   const testcaseDef = new TestcaseDefinition({
     name: 'my step name',
     description: 'my description',

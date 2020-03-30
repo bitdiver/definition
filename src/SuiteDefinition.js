@@ -63,22 +63,22 @@ export default class SuiteDefinition {
     }
 
     // validate the steps
-    Object.keys(this.steps).forEach(id => {
+    Object.keys(this.steps).forEach((id) => {
       const step = this.steps[id]
-      step.validate().forEach(err => {
+      step.validate().forEach((err) => {
         errors.push(err)
       })
     })
 
     // validate the testcases
-    this.testcases.forEach(tc => {
-      tc.validate().forEach(err => {
+    this.testcases.forEach((tc) => {
+      tc.validate().forEach((err) => {
         errors.push(err)
       })
     })
 
     if (this.executionMode === EXECUTION_MODE_BATCH) {
-      this.validateBatch().forEach(err => {
+      this.validateBatch().forEach((err) => {
         errors.push(err)
       })
     }

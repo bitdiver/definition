@@ -1,9 +1,9 @@
-import SuiteDefinition from '../lib/SuiteDefinition'
-import { EXECUTION_MODE_NORMAL } from '../lib/SuiteDefinition'
-import StepDefinition from '../lib/StepDefinition'
-import TestcaseDefinition from '../lib/TestcaseDefinition'
+import SuiteDefinition from '../src/SuiteDefinition'
+import { EXECUTION_MODE_NORMAL } from '../src/SuiteDefinition'
+import StepDefinition from '../src/StepDefinition'
+import TestcaseDefinition from '../src/TestcaseDefinition'
 
-test('validate: No errors', async done => {
+test('validate: No errors', async (done) => {
   const suiteDef = new SuiteDefinition({
     name: 'my step name',
     description: 'my description',
@@ -18,7 +18,7 @@ test('validate: No errors', async done => {
   done()
 })
 
-test('validate: Missing name', async done => {
+test('validate: Missing name', async (done) => {
   const suiteDef = new SuiteDefinition({
     // name: 'my step name',
     description: 'my description',
@@ -35,7 +35,7 @@ test('validate: Missing name', async done => {
   done()
 })
 
-test('validate: Missing testcases', async done => {
+test('validate: Missing testcases', async (done) => {
   const suiteDef = new SuiteDefinition({
     name: 'my step name',
     description: 'my description',
@@ -55,7 +55,7 @@ test('validate: Missing testcases', async done => {
   done()
 })
 
-test('validate: Missing steps', async done => {
+test('validate: Missing steps', async (done) => {
   const suiteDef = new SuiteDefinition({
     name: 'my step name',
     description: 'my description',
@@ -72,7 +72,7 @@ test('validate: Missing steps', async done => {
   done()
 })
 
-test.only('validate: Different test cases have different amount of steps', async done => {
+test.only('validate: Different test cases have different amount of steps', async (done) => {
   const suiteDef = new SuiteDefinition({
     name: 'my step name',
     description: 'my description',
@@ -102,7 +102,7 @@ test.only('validate: Different test cases have different amount of steps', async
   done()
 })
 
-test.only('validate: Different test cases have different amount of steps but NOT batch mode', async done => {
+test.only('validate: Different test cases have different amount of steps but NOT batch mode', async (done) => {
   const suiteDef = new SuiteDefinition({
     name: 'my step name',
     description: 'my description',
@@ -147,7 +147,7 @@ function getTestcase(ids) {
  * @param suite {object} The suite definition the steps should be added
  */
 function addSteps(ids, suite) {
-  ids.forEach(id => {
+  ids.forEach((id) => {
     const stepDef = new StepDefinition({
       class: 'my class',
       name: 'my step name',

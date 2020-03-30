@@ -1,6 +1,6 @@
-import StepDefinition from '../lib/StepDefinition'
+import StepDefinition from '../src/StepDefinition'
 
-test('validate: No errors', async done => {
+test('validate: No errors', async (done) => {
   const stepDef = new StepDefinition({
     class: 'my class',
     name: 'my step name',
@@ -13,7 +13,7 @@ test('validate: No errors', async done => {
   done()
 })
 
-test('validate: Name missing', async done => {
+test('validate: Name missing', async (done) => {
   const stepDef = new StepDefinition({
     class: 'my class',
     description: 'my description',
@@ -31,7 +31,7 @@ test('validate: Name missing', async done => {
   done()
 })
 
-test('validate: Class missing', async done => {
+test('validate: Class missing', async (done) => {
   const stepDef = new StepDefinition({
     name: 'my step name',
     description: 'my description',
@@ -50,7 +50,7 @@ test('validate: Class missing', async done => {
   done()
 })
 
-test('create Step', async done => {
+test('create Step', async (done) => {
   const stepDef = new StepDefinition({
     name: 'my step name',
     description: 'my description',
