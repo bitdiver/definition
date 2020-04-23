@@ -59,6 +59,6 @@
 	},
 	"dependencies": {
 		"@babel/runtime": "7.9.2",
-		"uuid": "7.0.2"
+		"uuid": "7.0.3"
 	}
 }
