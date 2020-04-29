@@ -58,7 +58,7 @@
 		"semantic-release": "17.0.4"
 	},
 	"dependencies": {
-		"@babel/runtime": "7.9.2",
+		"@babel/runtime": "7.9.6",
 		"uuid": "7.0.2"
 	}
 }
