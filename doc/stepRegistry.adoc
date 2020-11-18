@@ -1,0 +1,43 @@
+== StepRegistry
+This is the registry for all the step classes. The registry will be used
+to create the real steps on runtime from the step definitions before.
+The runner gets a stepDefinition which should be executed, then looks up
+a implementation in the stepRegistry object.
+
+So beforehand the steps needs to be registered in the step registry.
+
+
+=== Methods
+
+==== registerStep(stepName, step)::
+Registers a new step class to the registry.
+
+* stepName +
+  A name under which the step class should be registered.
+
+* step +
+  The step class.
+
+.Example usage
+[source, js]
+----
+import {SuperStep} from 'myStepProject'
+
+stepRegistry.registerStep('superStepName', SuperStep)
+----
+
+
+==== getStep(stepName)
+Creates an instance for the class registered under the given name.
+
+* stepName +
+  The name under which the step class was registered.
+
+* RETURNS +
+	The instance of the step
+
+.Example usage
+[source, js]
+----
+const mySuperStep = stepRegistry.getStep('superStepName')
+----
