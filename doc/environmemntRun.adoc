@@ -1,0 +1,25 @@
+== EnvironmemntRun
+The run environment is the context which lives for the whole execution of the run.
+This context could be used to store configurations or other data which needs to be provided to each test case.
+This context could be read and written by each step in each test case.
+
+The data is stored in a map.
+
+.EnvironmemntRun properties
+[source, js]
+----
+{
+  id: 'uuid'             <1>
+  name: 'suite name'     <2>
+  status: STATUS_OK      <3>
+  description: 'a desc'  <4>
+  startTime: Date.now()  <5>
+  this.map = new Map()   <6>
+}
+----
+<1> The id is a uuid. It will be generated when the environment is created.
+<2> The name of the suite.
+<3> The overall status of this run. If one test case has an error the complete run get the status error.
+<4> Any description for this run.
+<5> The timestamp the run was started.
+<6> This map is used to store the context information.
