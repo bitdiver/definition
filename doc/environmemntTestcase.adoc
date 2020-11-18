@@ -1,0 +1,26 @@
+== EnvironmemntTestcase
+The test case environment is the context which lives for the whole execution of the test case.
+For each test case an own environment will be created. This context is the right place to transport
+data from one step to a following step in the test case.
+
+The data is stored in a map.
+
+.EnvironmemntRun properties
+[source, js]
+----
+{
+  id: 'uuid'             <1>
+  name: 'suite name'     <2>
+  status: STATUS_OK      <3>
+  description: 'a desc'  <4>
+  running: true          <5>
+  this.map = new Map()   <6>
+}
+----
+<1> The id is a uuid. It will be generated when the environment is created.
+<2> The name of the suite.
+<3> The overall status of this run. If one test case has an error the complete run get the status error.
+<4> Any description for this run.
+<5> if a test case has failed the running status will be switched to false. So there will
+    be no execution of further steps for this test case.
+<6> This map is used to store the context information.
