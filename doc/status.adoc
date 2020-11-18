@@ -1,0 +1,27 @@
+== Execution status
+Describes the existing status values used by the step, test case and run.
+
+STATUS_OK::
+ value = 1 +
+ This status is set on each step, test case and run when a new run starts.
+
+STATUS_UNKNOWN::
+ value = 2 +
+ This status will be set for example if a test will be stopped but the test case
+ is not yet finished and not failed.
+
+STATUS_WARNING::
+ value = 3 +
+ This status is set if the 'logWarning' method of a step was called.
+
+STATUS_ERROR::
+ value = 4 +
+ This status will be set if 'logError' method of a step was called or any
+ other error comes up for a test case. This causes the test case to stop.
+ For this test case no further steps will be executed.
+
+STATUS_FATAL::
+value = 5 +
+This status will be set if 'logFatal' method of a step was called or any
+other fatal error comes up for a test case or run. This causes the complete
+test to stop. The rest of the run will be aborted.
