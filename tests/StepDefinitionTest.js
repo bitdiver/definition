@@ -1,6 +1,6 @@
 import StepDefinition from '../src/StepDefinition'
 
-test('validate: No errors', async (done) => {
+test('validate: No errors', async () => {
   const stepDef = new StepDefinition({
     class: 'my class',
     name: 'my step name',
@@ -9,11 +9,9 @@ test('validate: No errors', async (done) => {
 
   const errors = stepDef.validate()
   expect(errors.length).toBe(0)
-
-  done()
 })
 
-test('validate: Name missing', async (done) => {
+test('validate: Name missing', async () => {
   const stepDef = new StepDefinition({
     class: 'my class',
     description: 'my description',
@@ -27,11 +25,9 @@ test('validate: Name missing', async (done) => {
       step: 'my class',
     },
   ])
-
-  done()
 })
 
-test('validate: Class missing', async (done) => {
+test('validate: Class missing', async () => {
   const stepDef = new StepDefinition({
     name: 'my step name',
     description: 'my description',
@@ -46,11 +42,9 @@ test('validate: Class missing', async (done) => {
       step: 'my step name',
     },
   ])
-
-  done()
 })
 
-test('create Step', async (done) => {
+test('create Step', async () => {
   const stepDef = new StepDefinition({
     name: 'my step name',
     description: 'my description',
@@ -64,6 +58,4 @@ test('create Step', async (done) => {
     id: 'myId',
     name: 'my step name',
   })
-
-  done()
 })

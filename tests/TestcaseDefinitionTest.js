@@ -1,6 +1,6 @@
 import TestcaseDefinition from '../src/TestcaseDefinition'
 
-test('validate: No errors', async (done) => {
+test('validate: No errors', async () => {
   const testcaseDef = new TestcaseDefinition({
     name: 'my step name',
     description: 'my description',
@@ -11,11 +11,9 @@ test('validate: No errors', async (done) => {
 
   const errors = testcaseDef.validate()
   expect(errors.length).toBe(0)
-
-  done()
 })
 
-test('validate: Missing name', async (done) => {
+test('validate: Missing name', async () => {
   const testcaseDef = new TestcaseDefinition({
     description: 'my description',
   })
@@ -27,11 +25,9 @@ test('validate: Missing name', async (done) => {
   expect(errors).toEqual([
     { class: 'TestcaseDefinition', error: "The 'name' property is not set." },
   ])
-
-  done()
 })
 
-test('validate: Missing data', async (done) => {
+test('validate: Missing data', async () => {
   const testcaseDef = new TestcaseDefinition({
     name: 'my step name',
     description: 'my description',
@@ -48,11 +44,9 @@ test('validate: Missing data', async (done) => {
       testcase: 'my step name',
     },
   ])
-
-  done()
 })
 
-test('validate: Missing steps', async (done) => {
+test('validate: Missing steps', async () => {
   const testcaseDef = new TestcaseDefinition({
     name: 'my step name',
     description: 'my description',
@@ -69,11 +63,9 @@ test('validate: Missing steps', async (done) => {
       testcase: 'my step name',
     },
   ])
-
-  done()
 })
 
-test('validate: steps count !== data count', async (done) => {
+test('validate: steps count !== data count', async () => {
   const testcaseDef = new TestcaseDefinition({
     name: 'my step name',
     description: 'my description',
@@ -91,6 +83,4 @@ test('validate: steps count !== data count', async (done) => {
       testcase: 'my step name',
     },
   ])
-
-  done()
 })

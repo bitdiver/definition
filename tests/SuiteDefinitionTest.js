@@ -3,7 +3,7 @@ import { EXECUTION_MODE_NORMAL } from '../src/SuiteDefinition'
 import StepDefinition from '../src/StepDefinition'
 import TestcaseDefinition from '../src/TestcaseDefinition'
 
-test('validate: No errors', async (done) => {
+test('validate: No errors', async () => {
   const suiteDef = new SuiteDefinition({
     name: 'my step name',
     description: 'my description',
@@ -14,11 +14,9 @@ test('validate: No errors', async (done) => {
 
   const errors = suiteDef.validate()
   expect(errors.length).toBe(0)
-
-  done()
 })
 
-test('validate: Missing name', async (done) => {
+test('validate: Missing name', async () => {
   const suiteDef = new SuiteDefinition({
     // name: 'my step name',
     description: 'my description',
@@ -31,11 +29,9 @@ test('validate: Missing name', async (done) => {
   expect(errors).toEqual([
     { class: 'SuiteDefinition', error: "The 'name' property is not set." },
   ])
-
-  done()
 })
 
-test('validate: Missing testcases', async (done) => {
+test('validate: Missing testcases', async () => {
   const suiteDef = new SuiteDefinition({
     name: 'my step name',
     description: 'my description',
@@ -51,11 +47,9 @@ test('validate: Missing testcases', async (done) => {
       error: 'The suite does not contain any testcases',
     },
   ])
-
-  done()
 })
 
-test('validate: Missing steps', async (done) => {
+test('validate: Missing steps', async () => {
   const suiteDef = new SuiteDefinition({
     name: 'my step name',
     description: 'my description',
@@ -68,11 +62,9 @@ test('validate: Missing steps', async (done) => {
   expect(errors).toEqual([
     { class: 'SuiteDefinition', error: 'The suite does not contain any steps' },
   ])
-
-  done()
 })
 
-test.only('validate: Different test cases have different amount of steps', async (done) => {
+test.only('validate: Different test cases have different amount of steps', async () => {
   const suiteDef = new SuiteDefinition({
     name: 'my step name',
     description: 'my description',
@@ -98,11 +90,9 @@ test.only('validate: Different test cases have different amount of steps', async
       testcase: 'my tc name',
     },
   ])
-
-  done()
 })
 
-test.only('validate: Different test cases have different amount of steps but NOT batch mode', async (done) => {
+test.only('validate: Different test cases have different amount of steps but NOT batch mode', async () => {
   const suiteDef = new SuiteDefinition({
     name: 'my step name',
     description: 'my description',
@@ -120,8 +110,6 @@ test.only('validate: Different test cases have different amount of steps but NOT
 
   const errors = suiteDef.validate()
   expect(errors).toEqual([])
-
-  done()
 })
 
 /**
