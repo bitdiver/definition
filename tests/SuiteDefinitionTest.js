@@ -1,7 +1,9 @@
-import SuiteDefinition from '../src/SuiteDefinition'
-import { EXECUTION_MODE_NORMAL } from '../src/SuiteDefinition'
-import StepDefinition from '../src/StepDefinition'
-import TestcaseDefinition from '../src/TestcaseDefinition'
+import {
+  SuiteDefinition,
+  StepDefinition,
+  TestcaseDefinition,
+  EXECUTION_MODE_NORMAL,
+} from '../src/index'
 
 test('validate: No errors', async () => {
   const suiteDef = new SuiteDefinition({

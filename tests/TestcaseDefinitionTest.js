@@ -1,4 +1,4 @@
-import TestcaseDefinition from '../src/TestcaseDefinition'
+import { TestcaseDefinition } from '../src/index'
 
 test('validate: No errors', async () => {
   const testcaseDef = new TestcaseDefinition({

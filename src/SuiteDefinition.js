@@ -4,7 +4,7 @@ export const EXECUTION_MODE_NORMAL = 'normal'
 /**
  * This class is for defining a Suite
  */
-export default class SuiteDefinition {
+export class SuiteDefinition {
   constructor(opts = {}) {
     // a name for this suite
     this.name = opts.name

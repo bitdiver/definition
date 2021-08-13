@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid'
 /**
  * This class is defining a step for execution. It is used in a suite.
  */
-export default class StepDefinition {
+export class StepDefinition {
   constructor(opts = {}) {
     // The class is the name under which the implementation of this step is registered
     this.class = opts.class ? opts.class : undefined

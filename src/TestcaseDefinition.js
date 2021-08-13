@@ -1,7 +1,7 @@
 /**
  * This class is for defining a step
  */
-export default class TestcaseDefinition {
+export class TestcaseDefinition {
   constructor(opts = {}) {
     // a name for this test case.
     this.name = opts.name ? opts.name : undefined

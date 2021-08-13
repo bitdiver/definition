@@ -1,4 +1,4 @@
-import StepDefinition from '../src/StepDefinition'
+import { StepDefinition } from '../src/index'
 
 test('validate: No errors', async () => {
   const stepDef = new StepDefinition({

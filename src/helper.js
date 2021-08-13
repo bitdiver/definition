@@ -1,9 +1,9 @@
 import fs from 'fs'
 import util from 'util'
 
-import StepDefinition from './StepDefinition'
-import TestcaseDefinition from './TestcaseDefinition'
-import SuiteDefinition, { EXECUTION_MODE_NORMAL } from './SuiteDefinition'
+import { StepDefinition } from './StepDefinition'
+import { TestcaseDefinition } from './TestcaseDefinition'
+import { SuiteDefinition, EXECUTION_MODE_NORMAL } from './SuiteDefinition'
 
 const readFile = util.promisify(fs.readFile)
 
@@ -13,8 +13,7 @@ const readFile = util.promisify(fs.readFile)
  * @return suite {object} A suite definition
  */
 export async function loadSuite(fileName) {
-  const dataRaw = await readFile(fileName)
-  const data = JSON.parse(dataRaw)
+  const data = JSON.parse(await readFile(fileName))
 
   // create the steps
   const steps = []
