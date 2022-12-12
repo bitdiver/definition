@@ -1,0 +1,108 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "StepDefinitionInterface": {
+            "description": "Defines the structure of one single step",
+            "properties": {
+                "description": {
+                    "description": "An additional description of the step",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "The name the step is registered in the step registry",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A different name for the step used in the execution log. and used to register the step in the test case",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "description",
+                "id",
+                "name"
+            ],
+            "type": "object"
+        },
+        "TestcaseDefinitionInterface": {
+            "description": "Defines one single testcase in the suite",
+            "properties": {
+                "data": {
+                    "description": "The data for each step of this test case.\nThe order of the stepIds and data corresponds to each other\nFor each entry in the 'steps' property must be one entry in the\n'data' array. If a step do not need any data then a null must be there",
+                    "items": {},
+                    "type": "array"
+                },
+                "decription": {
+                    "description": "A description of this testcase",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The name of the testcase",
+                    "type": "string"
+                },
+                "steps": {
+                    "description": "The step names to be executed for this test case in the right order",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "tags": {
+                    "description": "String tags for filtering results",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "data",
+                "name",
+                "steps"
+            ],
+            "type": "object"
+        }
+    },
+    "properties": {
+        "executionMode": {
+            "enum": [
+                "batch",
+                "normal"
+            ],
+            "type": "string"
+        },
+        "name": {
+            "description": "The name of this suite",
+            "type": "string"
+        },
+        "steps": {
+            "additionalProperties": {
+                "$ref": "#/definitions/StepDefinitionInterface"
+            },
+            "description": "The name used to store the step here step.name.\nIt is used to reference the step from the testcase",
+            "type": "object"
+        },
+        "tags": {
+            "description": "String tags for filtering results",
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "testcases": {
+            "description": "The list of testcases to be executed in the right order",
+            "items": {
+                "$ref": "#/definitions/TestcaseDefinitionInterface"
+            },
+            "type": "array"
+        }
+    },
+    "required": [
+        "executionMode",
+        "name",
+        "steps",
+        "testcases"
+    ],
+    "type": "object"
+}
+
