@@ -1,12 +1,4 @@
 == Definition
+This module defines the structure of the serialized Suite.
+It consists of the components 'Suite', 'Testcase' and 'Step'
 
-This classes in this project describes suites, test cases and steps.
-This model is used by the runner to run the test.
-
-A suite defined the order in which steps are executed and test cases are run.
-
-include::step.adoc[]
-
-include::testcase.adoc[]
-
-include::suite.adoc[]

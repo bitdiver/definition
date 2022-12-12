@@ -1,64 +1,58 @@
 {
-	"name": "@bitdiver/definition",
-	"version": "0.0.0-semantic-release",
-	"description": "",
-	"main": "lib/index.js",
-	"publishConfig": {
-		"access": "public"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/bitdiver/definition.git"
-	},
-	"bugs": {
-		"url": "https://github.com/bitdiver/definition/issues"
-	},
-	"homepage": "https://github.com/bitdiver/definition#readme",
-	"scripts": {
-		"build": "npm run src_format && npm run src_lint && babel src -d lib",
-		"src_lint": "eslint src tests",
-		"src_format": "prettier --no-semi --single-quote --trailing-comma es5 --write \"{src,tests}/**/*.js\"",
-		"test_only": "jest",
-		"test": "npm run build && jest -c jest.config.json",
-		"debug": "npm run build && node --inspect-brk ./node_modules/.bin/jest -i --config=./jest.config.json",
-		"prepare": "npm run build"
-	},
-	"contributors": [
-		{
-			"name": "Torsten Link",
-			"email": "torstenlink@gmx.de"
-		},
-		{
-			"name": "Markus Felten",
-			"email": "markus.felten@gmx.de"
-		}
-	],
-	"license": "ISC",
-	"devDependencies": {
-		"@babel/cli": "7.14.8",
-		"@babel/core": "7.14.8",
-		"@babel/node": "7.14.7",
-		"@babel/plugin-proposal-object-rest-spread": "7.14.7",
-		"@babel/plugin-transform-runtime": "7.14.5",
-		"@babel/polyfill": "7.12.1",
-		"@babel/preset-env": "7.14.8",
-		"@babel/register": "7.14.5",
-		"babel-core": "7.0.0-bridge.0",
-		"babel-eslint": "10.1.0",
-		"babel-jest": "27.0.6",
-		"cz-conventional-changelog": "3.3.0",
-		"eslint": "7.31.0",
-		"eslint-config-prettier": "8.3.0",
-		"eslint-plugin-babel": "5.3.1",
-		"jest": "27.0.6",
-		"jest-cli": "27.0.6",
-		"jest-environment-node-debug": "2.0.0",
-		"prettier": "2.3.2",
-		"regenerator-runtime": "0.13.9",
-		"semantic-release": "17.4.4"
-	},
-	"dependencies": {
-		"@babel/runtime": "7.14.8",
-		"uuid": "8.3.2"
-	}
+  "name": "@bitdiver/definition",
+  "version": "0.0.0-semantic-version",
+  "description": "My great XXX Lib",
+  "main": "dist/src/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bitdiver/definition.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bitdiver/definition/issues"
+  },
+  "homepage": "https://github.com/bitdiver/definition#readme",
+  "scripts": {
+    "build": "npm run format && npm run lint && rimraf dist && tsc && depcheck",
+    "build:debug": "npm run format && npm run lint && rimraf dist && tsc --sourceMap true",
+    "createSchema": "npx typescript-json-schema --required  src/interfaceSuiteDefinition.ts SuiteDefinitionInterface > src/schema/interfaceSuiteDefinition.json",
+    "debug": "npm run build:debug && node -r ts-node/register --inspect-brk ./node_modules/.bin/jest -i --config=./jest.config.js",
+    "doc": "npm run docPdf && npm run docDocbook && npm run doc2md && npm run docApi && npx xhubio-scripts-lib replaceImageLinks",
+    "doc2md": "pandoc -f docbook -t markdown_strict docTmp/index.xml -o README.md",
+    "docApi": "npx typedoc --plugin typedoc-plugin-markdown",
+    "docDocbook": "asciidoctor -a ./node_modules/.bin/mmdc -r asciidoctor-diagram -b docbook5 doc/index.adoc -o docTmp/index.xml",
+    "docPdf": "asciidoctor-pdf -a ./node_modules/.bin/mmdc -r asciidoctor-diagram doc/index.adoc -o docTmp/index.pdf",
+    "format": "prettier --write \"{src,tests}/**/*.{js,ts,yml}\"",
+    "lint": "eslint \"{src,tests}/**/*.{js,ts}\"",
+    "prepare": "npm run build",
+    "src_format": "prettier --no-semi --single-quote --trailing-comma es5 --write \"{src,tests}/**/*.js\"",
+    "src_lint": "eslint src tests",
+    "test": "npm run build && jest -c jest.config.js",
+    "test:only": "jest -c jest.config.js",
+    "test_only": "jest",
+    "xhubioUpdate": "npx xhubio-scripts-lib xhubioUpdate"
+  },
+  "contributors": [
+    {
+      "name": "Torsten Link",
+      "email": "torstenlink@gmx.de"
+    }
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "ajv": "^8.11.2"
+  },
+  "devDependencies": {
+    "@xhubio/build-base": "^1.0.51",
+    "typescript-json-schema": "^0.55.0"
+  },
+  "keywords": [
+    "build",
+    "typescript"
+  ],
+  "files": [
+    "dist/src/**/*"
+  ]
 }

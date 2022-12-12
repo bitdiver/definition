@@ -1,4 +1,4 @@
-@bitdiver/definition / [Exports](docApi/modules.md)
+@bitdiver/definition / [Exports](modules.md)
 
 # Definition
 
