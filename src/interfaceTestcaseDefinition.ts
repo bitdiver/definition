@@ -9,7 +9,7 @@ export interface TestcaseDefinitionInterface {
   tags?: string[]
 
   /** A description of this testcase */
-  decription?: string
+  description?: string
 
   /** The step names to be executed for this test case in the right order */
   steps: string[]
