@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "@xhubio/build-base": "^1.0.51",
-    "typescript-json-schema": "^0.56.0"
+    "typescript-json-schema": "^0.57.0"
   },
   "keywords": [
     "build",
